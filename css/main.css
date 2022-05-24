@@ -2,6 +2,9 @@ header {
     display: flex;
     width: 100%;
     height: 8vh;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 999;
 }
 
 .wrapper-header {
@@ -147,8 +150,7 @@ header {
 .main-video {
     object-fit: cover;
     width: 100%;
-    height: 92vh;
-    z-index: -1;
+    height: 100vh;
 }
 
 .sec-first {
@@ -157,7 +159,7 @@ header {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 92vh;
+    height: 100vh;
 }
 
 .art-first {
@@ -169,7 +171,7 @@ header {
     top: 8vh;
     left: 0px;
     width: 100%;
-    height: 92vh;
+    height: 100vh;
 }
 
 .intro-shop {
@@ -184,15 +186,22 @@ header {
     flex-direction: column;
     width: 100%;
     height: 100vh;
+    background-color: #ffffff;
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 25px;
+    height: 50px;
 }
 
 .imgs-shop {
     display: flex;
     width: 100%;
-    height: 100%;
-    background-color:blanchedalmond;
+    height: 80%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .shop-wrap {
@@ -211,7 +220,7 @@ header {
 }
 
 .img-desc, .wrap-img-shop {
-    width: 80%;
+    width: 100%;
     height: 50%;
     background-color: aliceblue;
     display: flex;
@@ -222,8 +231,35 @@ header {
 }
 
 .img-shop {
-    max-width: 350px;
+    max-width: 450px;
     max-height: 250px;
     width: 100%;
     height: 100%;
+}
+
+.sec-third {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.art-third {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+}
+
+.location-shop {
+    display: flex;
+    width: 300px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
 }
