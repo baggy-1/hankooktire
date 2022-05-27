@@ -1,6 +1,9 @@
 const LAT = 36.0783841;
 const LNG = 128.4000444;
-const container_map = document.querySelector('#map');
+const container_map = document.querySelector('.map');
+const container_map_rv = document.querySelector('.map-rv');
+const btn_rv = document.querySelector('.btn-rv');
+const btn_fr = document.querySelector('.btn-fr');
 const options = {
     center: new kakao.maps.LatLng(LAT, LNG),
     level: 2
@@ -16,22 +19,33 @@ const marker = new kakao.maps.Marker({
 
 marker.setMap(map);
 
+let isRoadView = false;
+let isFirstRoadView = true;
 function clickBtnRoadView(e) {
-    const btnClose = document.createElement('button');
-    const btnCloseText = document.createTextNode('X');
-    btnClose.appendChild(btnCloseText);
-    container_map.appendChild(btnClose);
+    if(isFirstRoadView){
+        const roadView = new kakao.maps.Roadview(container_map_rv, {
+            pan: 170,
+        });
+        const roadViewClient = new kakao.maps.RoadviewClient();
 
-    const roadView = new kakao.maps.Roadview(container_map, {
-        pan: 170,
-    });
-    const roadViewClient = new kakao.maps.RoadviewClient();
+        const position = new kakao.maps.LatLng(36.07865, 128.4);
 
-    const position = new kakao.maps.LatLng(36.07865, 128.4);
-
-    roadViewClient.getNearestPanoId(position, 50, function(panoId) {
-        roadView.setPanoId(panoId, position);
-    });
+        roadViewClient.getNearestPanoId(position, 50, function(panoId) {
+            roadView.setPanoId(panoId, position);
+        });
+        isFirstRoadView = false;
+    }
+    
+    if(!isRoadView) {
+        container_map.style.zIndex = '0';
+        container_map_rv.style.zIndex = '10';
+        btn_rv.textContent = '지도';
+    } else {
+        container_map.style.zIndex = '10';
+        container_map_rv.style.zIndex = '0';
+        btn_rv.textContent = '로드뷰';
+    }
+    isRoadView = !isRoadView;
 }
 
 let isOpenInfoWindow = false;
@@ -51,7 +65,7 @@ function closeInfoWindow(e) {
     }
 }
 
-const iwContent = '<div class="test">남구미자동차정비</br>(한국타이어 석적점)<button onclick="clickBtnRoadView();">로드뷰</button></div>',
+const iwContent = '<div class="info-window">남구미자동차정비</br>(한국타이어 석적점)</div>',
     iwRemoveable = true;
 
 const infowindow = new kakao.maps.InfoWindow({
@@ -59,5 +73,11 @@ const infowindow = new kakao.maps.InfoWindow({
     removable: iwRemoveable,
 });
 
+function moveLinkFindRoad(e) {
+    location.href = `https://map.kakao.com/link/to/남구미자동차정비,${LAT}},${LNG}`
+}
+
 kakao.maps.event.addListener(marker, 'click', openInfoWindow);
 kakao.maps.event.addListener(map, 'click', closeInfoWindow);
+btn_rv.addEventListener('click', clickBtnRoadView);
+btn_fr.addEventListener('click', moveLinkFindRoad);

@@ -14,22 +14,24 @@
             <div class="wrap-img">
                 <img class="logo" src="img/logo.jpg">
             </div>
-            <div class="wrapper-icon">
-                <div class="location"></div>
-                <div class="language"></div>
-                <nav class="site-nav">
-                    <input id='nav-toggle' type="checkbox">
-                    <label class='nav-toggle-label' for="nav-toggle">
-                        <span class="nav-bar"></span>
-                    </label>
-                    <div class="nav-content-wrapper">
-                        <ul class="nav">
-                            <li class="nav-content">매장사진</li>
-                            <li class="nav-content">예약문의</li>
-                            <li class="nav-content">찾아오시는 길</li>
-                        </ul>
-                    </div>
-                </nav>
+            <div class="wrap-icon">
+                <div class="wrapper-icon">
+                    <div class="location" onclick="location.href='#fr'"></div>
+                    <div class="language"></div>
+                    <nav class="site-nav">
+                        <input id='nav-toggle' type="checkbox">
+                        <label class='nav-toggle-label' for="nav-toggle">
+                            <span class="nav-bar"></span>
+                        </label>
+                        <div class="nav-content-wrapper">
+                            <ul class="nav">
+                                <li class="nav-content">매장사진</li>
+                                <li class="nav-content">예약문의</li>
+                                <li class="nav-content">찾아오시는 길</li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>
@@ -57,10 +59,14 @@
     </section>
     <section class="sec-third">
         <article class="art-third">
-            <div class="heading">찾아오시는 길</div>
-            <div class="map-shop" id="map">
-                <div class="btn-roadView"></div>
-                <div class="btn-findRoad"></div>
+            <div class="heading" id="fr">찾아오시는 길</div>
+            <div class="map-shop">
+                <div class="btn-wrap">
+                    <button class="btn-fr">길찾기</button>
+                    <button class="btn-rv">로드뷰</button>
+                </div>
+                <div class="map" id="map"></div>
+                <div class="map-rv"></div>
             </div>
             <div class="location-shop">경북 칠곡군 석적읍 석적로 1017-14</div>
         </article>
