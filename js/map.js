@@ -3,8 +3,8 @@ import { MAP_API_KEY } from './api.js';
 const script = document.createElement('script');
 script.type = `text/javascript`;
 script.src = `https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=${MAP_API_KEY}`;
-script.addEventListener('load', postLoadFunction);
 document.body.appendChild(script);
+script.addEventListener('load', postLoadFunction);
 
 function postLoadFunction() {
     kakao.maps.load(function() {

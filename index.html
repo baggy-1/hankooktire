@@ -39,7 +39,7 @@
             <p class="intro-shop">
                 한국타이어 석적점
             </p>
-            <button>예약 문의</button>
+            <button class="btn-book">예약 문의</button>
         </article>
     </section>
     <section class="sec-second">
@@ -58,12 +58,15 @@
     <section class="sec-third">
         <article class="art-third">
             <div class="heading">찾아오시는 길</div>
-            <div class="map-shop" id="map"></div>
+            <div class="map-shop" id="map">
+                <div class="btn-roadView"></div>
+                <div class="btn-findRoad"></div>
+            </div>
             <div class="location-shop">경북 칠곡군 석적읍 석적로 1017-14</div>
         </article>
     </section>
     <footer></footer>
-    <script type='module' src="js/api.js"></script>
-    <script type='module' src="js/map.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=16feedbd5be5eb7ed5dd7319be5c609c"></script>
+    <script src="js/mapKakao.js"></script>
 </body>
 </html>
