@@ -1,5 +1,6 @@
 const LAT = 36.0783841;
 const LNG = 128.4000444;
+const ADDRESS_ID = 26370978;
 const container_map = document.querySelector('.map');
 const container_map_rv = document.querySelector('.map-rv');
 const btn_rv = document.querySelector('.btn-rv');
@@ -65,7 +66,7 @@ function closeInfoWindow(e) {
     }
 }
 
-const iwContent = '<div class="info-window">남구미자동차정비</br>(한국타이어 석적점)</div>',
+const iwContent = '<div class="info-window">남구미자동차정비</br>(한국타이어 석적점)</br></br>경북 칠곡군 석적읍 석적로 1017-14</br>(우) 39842</br>(지번) 석적읍 중리 659-1</div>',
     iwRemoveable = true;
 
 const infowindow = new kakao.maps.InfoWindow({
@@ -74,7 +75,7 @@ const infowindow = new kakao.maps.InfoWindow({
 });
 
 function moveLinkFindRoad(e) {
-    location.href = `https://map.kakao.com/link/to/남구미자동차정비,${LAT}},${LNG}`
+    location.href = `https://map.kakao.com/link/to/${ADDRESS_ID}`;
 }
 
 kakao.maps.event.addListener(marker, 'click', openInfoWindow);
