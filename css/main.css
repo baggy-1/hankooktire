@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Noto+Sans+KR:wght@300;400&display=swap');
+
+* {
+    font-family: 'Gowun Batang', serif !important;
+    font-family: 'Noto Sans KR', sans-serif !important;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -17,6 +24,7 @@ header {
     height: 100%;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 1000;
 }
 
 .wrap-img, .wrap-icon {
@@ -101,9 +109,24 @@ header {
     transition: all .2s ease-in;
 }
 
-.nav-content-wrapper, #nav-toggle {
+#nav-toggle {
     display: none;
     z-index: 999;
+}
+
+.nav-content-wrapper {
+    visibility: hidden;
+    z-index: 999;
+}
+
+.nav-content-wrapper {
+    display: block;
+    position: absolute;
+    top: 8vh;
+    left: 0px;
+    width: 100%;
+    height: 92vh;
+    overflow: hidden;
 }
 
 #nav-toggle:checked ~ .nav-toggle-label > .nav-bar {
@@ -122,34 +145,99 @@ header {
 
 @keyframes navOpen {
     from {
-        height: 0%;
+        clip-path: inset(0 0 0 100%);
+        height: 0vh;
     }
     to {
+        clip-path: inset(0 0 0 0);
         height: 92vh;
+    }
+}
+
+@keyframes navClose {
+    from {
+        clip-path: inset(0 0 0 0);
+        height: 92vh;
+    }
+    to {
+        clip-path: inset(0 0 0 100%);
+        height: 0vh;
     }
 }
 
 @keyframes navContentOpen {
     from {
         opacity: 0;
+        width: 0%;
     }
-
     to{
         opacity: 1;
+        width: 70%;
     }
 }
 
-#nav-toggle:checked ~ .nav-content-wrapper {
-    display: block;
+@keyframes navContentClose {
+    from {
+        width: 70%;
+        opacity: 1;
+    }
+    to{
+        width: 0%;
+        opacity: 0;
+    }
+}
+
+@keyframes circleNav {
+    from {
+        width: 100vh;
+        height: 100vh;
+    }
+    to {
+        width: 250vh;
+        height: 250vh;
+    }
+}
+
+@keyframes circleNavClose {
+    from {
+        width: 250vh;
+        height: 250vh;
+    }
+    to {
+        width: 100vh;
+        height: 100vh;
+    }
+}
+
+.nav-circle {
     position: absolute;
-    top: 8vh;
-    left: 0px;
-    width: 100%;
-    height: 92vh;
-    background-color: #ffffff;
+    top: -100vh;
+    right: -100vh;
+    border-radius: 50%;
     opacity: 0.95;
-    z-index: 999;
-    animation: navOpen 1s ease-in alternate forwards;
+    background-color: #ffffff;
+}
+
+.activeCC {
+    visibility: visible;
+    animation: circleNav .5s ease-in forwards;
+}
+
+.noactiveCC {
+    visibility: hidden;
+    transition: all .5s;
+    animation: circleNavClose .5s ease-in forwards;
+}
+
+.activeC {
+    visibility: visible;
+    animation: navContentOpen .5s ease-in alternate forwards;
+}
+
+.noactiveC {
+    visibility: hidden;
+    transition: all .5s;
+    animation: navContentClose .5s ease-in alternate forwards;
 }
 
 .nav-content {
@@ -162,10 +250,14 @@ header {
     font-size: 15pt;
     color: #000000;
     border-bottom: 1px solid rgba(0, 0, 0, 0.8);
-    animation: navContentOpen 1s ease-in alternate;
 }
 
 .nav {
+    position: absolute;
+    top: 8vw;
+    left: 0px;
+    width: 100vw;
+    height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -348,7 +440,7 @@ header {
     align-items: center;
     justify-content: center;
     color: #000000;
-    font-weight: 600;
+    font-weight: 900;
     letter-spacing: 5px;
     font-size: 25px;
     padding-top: 50px;
@@ -359,6 +451,7 @@ header {
     flex-direction: row;
     width: calc(100% * 5);
     height: 88%;
+    transition: all 1s;
 }
 
 .move-img {
@@ -433,7 +526,6 @@ header {
 }
 
 .heading {
-    position: absolute;
     font-weight: bold;
     font-size: 25px;
     height: 50px;
@@ -489,6 +581,15 @@ header {
 .shop-btn {
     position: absolute;
     top: calc((100% - 40px) / 2);
+}
+
+.art2-wrap {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .sec-third {
@@ -567,4 +668,47 @@ header {
     padding: 5px;
     text-align: center;
     color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .wrapper-header {
+        justify-content: space-between;
+    }
+
+    .wrap-icon {
+        display: none;
+    }
+    
+    .nav-content-wrapper {
+        visibility: visible;
+        position: relative;
+        top: 0px;
+        right: 0px;
+        width: 40%;
+        height: 100%;
+    }
+
+    .nav {
+        position: relative;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        flex-direction: row;
+
+    }
+
+    .nav-content {
+        display: flex;
+        border: 0px;
+        width: 100px;
+        height: 100%;
+        font-size: 13px;
+        font-weight: 900;
+    }
+
+    .nav-circle {
+        display: none;
+    }
 }

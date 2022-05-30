@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/reset.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDJ8RYPVND"></script>
@@ -31,17 +31,18 @@
                         <label class='nav-toggle-label' for="nav-toggle">
                             <span class="nav-bar"></span>
                         </label>
-                        <div class="nav-content-wrapper">
-                            <ul class="nav">
-                                <li class="nav-content" id="navShopBtn" onclick="location.href='#sec2'">매장사진</li>
-                                <li class="nav-content" id="navSvBtn" onclick="location.href='#sv-sec'">제공 서비스</li>
-                                <li class="nav-content" id="navCallBtn" onclick="document.location.href='tel:0549760770'">예약문의</li>
-                                <li class="nav-content" id="navMapBtn" onclick="location.href='#sec3'"">찾아오시는 길</li>
-                            </ul>
-                        </div>
                     </nav>
                 </div>
             </div>
+            <div class="nav-content-wrapper">
+                <ul class="nav">
+                    <li class="nav-content" id="navShopBtn" onclick="location.href='#sec2'">매장사진</li>
+                    <li class="nav-content" id="navSvBtn" onclick="location.href='#sv-sec'">제공 서비스</li>
+                    <li class="nav-content" id="navCallBtn" onclick="document.location.href='tel:0549760770'">예약문의</li>
+                    <li class="nav-content" id="navMapBtn" onclick="location.href='#sec3'"">찾아오시는 길</li>
+                </ul>
+            </div>
+            <div class="nav-circle"></div>
         </div>
     </header>
     <section class="sec-first" id="sec1">
@@ -75,11 +76,11 @@
             </div>
             <div class="service-wrap">
                 <ul class="move-img-wrap">
-                    <li class="move-img"><img src="img/tire.png"></li>
-                    <li class="move-img"><img src="img/alignment.png"></li>
-                    <li class="move-img"><img src="img/engineoil.png"></li>
-                    <li class="move-img"><img src="img/engineering.jpg"></li>
-                    <li class="move-img"><img src="img/largecar.jpg"></li>
+                    <li class="move-img sv-img"><img src="img/tire.png"></li>
+                    <li class="move-img sv-img"><img src="img/alignment.png"></li>
+                    <li class="move-img sv-img"><img src="img/engineoil.png"></li>
+                    <li class="move-img sv-img"><img src="img/engineering.jpg"></li>
+                    <li class="move-img sv-img"><img src="img/largecar.jpg"></li>
                 </ul>
                 <button class="btn-arrow-left"><</button>
                 <button class="btn-arrow-right">></button>
@@ -99,23 +100,25 @@
     </section>
     <section class="sec-second" id="sec2">
         <article class="imgs-shop">
-            <div class="heading">매장 사진</div>
-            <div class="img-wrap">
-                <ul class="move-img-wrap img-shop-wrap">
-                    <li class="move-img"><img src="img/shop1.jpg"></li>
-                    <li class="move-img"><img src="img/shop2.jpg"></li>
-                    <li class="move-img"><img src="img/shop3.jpg"></li>
-                    <li class="move-img"><img src="img/shop4.jpg"></li>
-                    <li class="move-img"><img src="img/shop5.jpg"></li>
-                </ul>
-                <button class="btn-arrow-left shop-btn" id="shop-btn-left"><</button>
-                <button class="btn-arrow-right shop-btn" id="shop-btn-right">></button>
-                <div class="service-control shop-btn-control">
-                    <button class="btn-service btn-click" id="btn-shop1"></button>
-                    <button class="btn-service btn-unclick" id="btn-shop2"></button>
-                    <button class="btn-service btn-unclick" id="btn-shop3"></button>
-                    <button class="btn-service btn-unclick" id="btn-shop4"></button>
-                    <button class="btn-service btn-unclick" id="btn-shop5"></button>
+            <div class="art2-wrap">
+                <div class="heading">매장 사진</div>
+                <div class="img-wrap">
+                    <ul class="move-img-wrap img-shop-wrap">
+                        <li class="move-img sp-img"><img src="img/shop1.jpg"></li>
+                        <li class="move-img sp-img"><img src="img/shop2.jpg"></li>
+                        <li class="move-img sp-img"><img src="img/shop3.jpg"></li>
+                        <li class="move-img sp-img"><img src="img/shop4.jpg"></li>
+                        <li class="move-img sp-img"><img src="img/shop5.jpg"></li>
+                    </ul>
+                    <button class="btn-arrow-left shop-btn" id="shop-btn-left"><</button>
+                    <button class="btn-arrow-right shop-btn" id="shop-btn-right">></button>
+                    <div class="service-control shop-btn-control">
+                        <button class="btn-service btn-click" id="btn-shop1"></button>
+                        <button class="btn-service btn-unclick" id="btn-shop2"></button>
+                        <button class="btn-service btn-unclick" id="btn-shop3"></button>
+                        <button class="btn-service btn-unclick" id="btn-shop4"></button>
+                        <button class="btn-service btn-unclick" id="btn-shop5"></button>
+                    </div>
                 </div>
             </div>
             <div class="scroll-wrap" onclick="location.href='#sec3'">
@@ -144,8 +147,8 @@
         </footer>
     </section>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=16feedbd5be5eb7ed5dd7319be5c609c"></script>
-    <script src="js/mapKakao.min.js"></script>
-    <script src="js/imgSlide.min.js"></script>
-    <script src="js/main.min.js"></script>
+    <script src="js/mapKakao.js"></script>
+    <script src="js/imgSlide.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
